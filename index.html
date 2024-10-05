@@ -346,7 +346,7 @@
                         <option value="2.5">2.5 years</option>
                         <option value="3">3 years</option>
                         <option value="3.5">3.5 years</option>
-<option value="4">4 years</option>
+                        <option value="4">4 years</option>
                         <option value="4.5">4.5 years</option>
                         <option value="5" selected>5 years</option>
                     </select>
@@ -626,7 +626,10 @@
 
         function createFinancialImpactChart(currentTotal, currentRetirement, continuousTotal, continuousRetirement, dinkTotal, dinkRetirement) {
             const ctx = document.getElementById('financialImpactChart').getContext('2d');
-            new Chart(ctx, {
+            if (window.financialImpactChart) {
+                window.financialImpactChart.destroy();
+            }
+            window.financialImpactChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: ['Current Plan', 'Continuous Employment', 'DINK Scenario'],
@@ -694,14 +697,17 @@
             document.querySelector('.logo').addEventListener('click', function() {
                 showPage('introPage');
             });
-        });
 
-        // Add event listeners for family type radio buttons
-        document.querySelectorAll('input[name="familyType"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                const isDINK = this.value === 'dink';
-                document.getElementById('childcareSection').style.display = isDINK ? 'none' : 'block';
+            // Add event listeners for family type radio buttons
+            document.querySelectorAll('input[name="familyType"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const isDINK = this.value === 'dink';
+                    document.getElementById('childcareSection').style.display = isDINK ? 'none' : 'block';
+                });
             });
+
+            // Add event listener for the Calculate Results button
+            document.querySelector('button[onclick="calculateResults()"]').addEventListener('click', calculateResults);
         });
     </script>
 </body>
