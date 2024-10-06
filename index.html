@@ -9,105 +9,75 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         :root {
-            --md-sys-color-primary: #6750A4;
+            --md-sys-color-primary: #1976D2;
             --md-sys-color-on-primary: #FFFFFF;
-            --md-sys-color-primary-container: #EADDFF;
-            --md-sys-color-on-primary-container: #21005D;
-            --md-sys-color-secondary: #625B71;
+            --md-sys-color-primary-container: #D0E4FF;
+            --md-sys-color-on-primary-container: #001D36;
+            --md-sys-color-secondary: #555F71;
             --md-sys-color-on-secondary: #FFFFFF;
-            --md-sys-color-secondary-container: #E8DEF8;
-            --md-sys-color-on-secondary-container: #1D192B;
-            --md-sys-color-surface: #FEF7FF;
-            --md-sys-color-on-surface: #1D1B20;
-            --md-sys-color-surface-variant: #E7E0EC;
-            --md-sys-color-on-surface-variant: #49454F;
-            --md-sys-color-outline: #79747E;
-            --md-sys-color-error: #B3261E;
+            --md-sys-color-secondary-container: #D9E3F8;
+            --md-sys-color-on-secondary-container: #121C2B;
+            --md-sys-color-tertiary: #715573;
+            --md-sys-color-on-tertiary: #FFFFFF;
+            --md-sys-color-tertiary-container: #FBD7FC;
+            --md-sys-color-on-tertiary-container: #29132D;
+            --md-sys-color-error: #BA1A1A;
             --md-sys-color-on-error: #FFFFFF;
+            --md-sys-color-error-container: #FFDAD6;
+            --md-sys-color-on-error-container: #410002;
+            --md-sys-color-background: #FAFCFF;
+            --md-sys-color-on-background: #001F2A;
+            --md-sys-color-surface: #FAFCFF;
+            --md-sys-color-on-surface: #001F2A;
+            --md-sys-color-surface-variant: #DFE2EB;
+            --md-sys-color-on-surface-variant: #43474E;
+            --md-sys-color-outline: #73777F;
+            --md-sys-color-outline-variant: #C3C6CF;
         }
 
-        body { 
+        body {
             font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6; 
-            color: var(--md-sys-color-on-surface);
-            background-color: var(--md-sys-color-surface);
-        }
-
-        .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            line-height: 1.6;
+            color: var(--md-sys-color-on-background);
+            background-color: var(--md-sys-color-background);
         }
 
-        .logo-container {
-            text-align: left;
-            margin-bottom: 20px;
+        h1, h2, h3 {
+            color: var(--md-sys-color-primary);
+            font-weight: 400;
         }
 
-        .logo {
-            max-width: 300px;
-            height: auto;
-            cursor: pointer;
-        }
-
-        .header {
-            background-color: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            padding: 20px;
-            border-radius: 16px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h1, h2, h3 { 
-            color: var(--md-sys-color-on-surface);
-            margin-bottom: 16px;
-        }
-
-        .page { 
+        .page {
             display: none;
-            animation: fadeIn 0.3s ease-in-out;
         }
 
-        .page.active { 
-            display: block; 
+        .page.active {
+            display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .section {
-            background-color: var(--md-sys-color-surface);
-            border-radius: 16px;
-            padding: 24px;
+        .form-group {
             margin-bottom: 24px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .form-group { 
-            margin-bottom: 24px; 
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--md-sys-color-on-surface);
         }
 
-        label { 
-            display: block; 
-            margin-bottom: 8px; 
-            font-weight: 500; 
-            color: var(--md-sys-color-on-surface-variant);
-        }
-
-        input[type="number"], input[type="radio"], select { 
-            width: 100%; 
-            padding: 12px 16px; 
-            border: 1px solid var(--md-sys-color-outline); 
-            border-radius: 8px; 
+        input[type="number"], input[type="radio"], select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 12px;
             font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
             background-color: var(--md-sys-color-surface);
             color: var(--md-sys-color-on-surface);
-            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         input[type="number"]:focus, select:focus {
@@ -116,71 +86,102 @@
             box-shadow: 0 0 0 2px var(--md-sys-color-primary-container);
         }
 
-        input[type="radio"] { 
-            width: auto; 
-            margin-right: 10px; 
+        input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
         }
 
-        button { 
-            padding: 12px 24px; 
-            background-color: var(--md-sys-color-primary); 
-            color: var(--md-sys-color-on-primary); 
-            border: none; 
-            border-radius: 100px; 
-            cursor: pointer; 
-            font-size: 16px;
+        button {
+            padding: 12px 24px;
+            background-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            transition: background-color 0.3s, transform 0.1s;
-            margin-right: 16px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         }
 
-        button:hover { 
-            background-color: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
+        button:hover {
+            background-color: #1565C0;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         }
 
-        button:active {
-            transform: translateY(2px);
-        }
-
-        .explanation { 
-            background-color: var(--md-sys-color-secondary-container); 
+        .explanation {
+            background-color: var(--md-sys-color-secondary-container);
             color: var(--md-sys-color-on-secondary-container);
-            border-left: 4px solid var(--md-sys-color-secondary); 
-            padding: 16px; 
-            margin-bottom: 24px; 
-            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 16px;
         }
 
-        table { 
-            width: 100%; 
-            border-collapse: separate; 
+        table {
+            width: 100%;
+            border-collapse: separate;
             border-spacing: 0;
-            margin-top: 24px; 
+            margin-top: 24px;
             background-color: var(--md-sys-color-surface);
-            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        th, td { 
-            padding: 16px; 
-            text-align: left; 
-            border-bottom: 1px solid var(--md-sys-color-outline);
+        th, td {
+            padding: 16px;
+            text-align: left;
         }
 
-        th { 
-            background-color: var(--md-sys-color-secondary-container); 
-            color: var(--md-sys-color-on-secondary-container);
+        th {
+            background-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
             font-weight: 500;
         }
 
-        tr:last-child td {
-            border-bottom: none;
+        .section {
+            margin-bottom: 32px;
+            background-color: var(--md-sys-color-surface);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
+        .title-box {
+            background-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            padding: 16px 24px;
+            border-radius: 24px;
+            display: inline-block;
+        }
+
+        .title-box h1 {
+            color: var(--md-sys-color-on-primary);
+            margin: 0;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .info-link {
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            color: var(--md-sys-color-primary);
         }
 
         .material-icons {
@@ -196,330 +197,312 @@
         }
 
         #resultsPage {
-            margin-bottom: 40px;
-        }
-
-        .chart-container {
-            background-color: var(--md-sys-color-surface);
-            border-radius: 16px;
-            padding: 24px;
-            margin-top: 24px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            height: 400px;
-        }
-
-        .title-box {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
-            border-radius: 8px;
-            font-weight: 500;
+            margin-bottom: 48px;
         }
 
         @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-            .logo-container {
-                text-align: left;
-            }
             button {
                 width: 100%;
                 margin-right: 0;
-            }
-            .chart-container {
-                height: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo-container">
-            <img src="logo.png" alt="FinMango and ModernHusbands Logo" class="logo" onclick="showPage('introPage')">
+    <div class="header">
+        <img src="logo.png" alt="FinMango and ModernHusbands Logo" class="logo" onclick="showPage('introPage')">
+        <div class="title-box">
+            <h1>Family Financial Planning Calculator</h1>
         </div>
-        <div class="header">
-            <h1 class="title-box">Family Financial Planning Calculator</h1>
+    </div>
+    <div id="introPage" class="page active">
+        <h2>Financial Outlook for Couples</h2>
+        <div class="explanation">
+            <p><span class="material-icons">info</span> This calculator, a collaboration between <a href="https://finmango.org" target="_blank">FinMango</a> and <a href="https://modernhusbands.com" target="_blank">Modern Husbands</a>, helps dual-income families and couples evaluate their financial trajectory over the next 15 years. It considers factors such as household income, potential career breaks, childcare costs, healthcare expenses, basic living expenses, taxes, and retirement savings.</p>
+            <p>We've pre-populated the fields with example numbers. Feel free to adjust these to match your specific situation.</p>
         </div>
+        <div class="button-container">
+            <button onclick="showPage('incomePage')"><span class="material-icons">arrow_forward</span> Let's Get Started</button>
+        </div>
+    </div>
 
-        <div id="introPage" class="page active">
-            <h2>Financial Outlook for Couples</h2>
+    <div id="incomePage" class="page">
+        <h2>Household Income Information</h2>
+        <div class="section">
+            <h3>Family Type</h3>
+            <div class="form-group">
+                <label>
+                    <input type="radio" name="familyType" value="withChildren" checked> Family with Children
+                </label>
+                <label>
+                    <input type="radio" name="familyType" value="dink"> DINK (Dual Income No Kids)
+                </label>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Household Income</h3>
             <div class="explanation">
-                <p><span class="material-icons">info</span> This calculator, a collaboration between <a href="https://finmango.org" target="_blank">FinMango</a> and <a href="https://modernhusbands.com" target="_blank">Modern Husbands</a>, helps dual-income families and couples evaluate their financial trajectory over the next 15 years. It considers factors such as household income, potential career breaks, childcare costs, healthcare expenses, basic living expenses, taxes, and retirement savings.</p>
-                <p>We've pre-populated the fields with example numbers. Feel free to adjust these to match your specific situation.</p>
+                <p><span class="material-icons">monetization_on</span> Enter the annual salary for each spouse/partner.</p>
             </div>
-            <div class="button-container">
-                <button onclick="showPage('incomePage')"><span class="material-icons">arrow_forward</span> Let's Get Started</button>
+            <div class="form-group">
+                <label for="salary1">Spouse / Partner #1 Annual Salary ($)</label>
+                <input type="number" id="salary1" value="75000" step="0.01" required>
             </div>
-        </div>
-
-        <div id="incomePage" class="page">
-            <h2>Household Income Information</h2>
-            <div class="section">
-                <h3>Family Type</h3>
-                <div class="form-group">
-                    <label>
-                        <input type="radio" name="familyType" value="withChildren" checked> Family with Children
-                    </label>
-                    <label>
-                        <input type="radio" name="familyType" value="dink"> DINK (Dual Income No Kids)
-                    </label>
-                </div>
+            <div class="form-group">
+                <label for="salary2">Spouse / Partner #2 Annual Salary ($)</label>
+                <input type="number" id="salary2" value="65000" step="0.01" required>
             </div>
-            <div class="section">
-                <h3>Household Income</h3>
-                <div class="explanation">
-                    <p><span class="material-icons">monetization_on</span> Enter the annual salary for each spouse/partner.</p>
-                </div>
-                <div class="form-group">
-                    <label for="salary1">Spouse / Partner #1 Annual Salary ($)</label>
-                    <input type="number" id="salary1" value="75000" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="salary2">Spouse / Partner #2 Annual Salary ($)</label>
-                    <input type="number" id="salary2" value="65000" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="workforceLeaveDuration1">If Spouse / Partner #1 plans to leave the workforce without pay, enter the amount of time:</label>
-                    <select id="workforceLeaveDuration1">
-                        <option value="0">No leave</option>
-                        <option value="0.5">0.5 years</option>
-                        <option value="1">1 year</option>
-                        <option value="1.5">1.5 years</option>
-                        <option value="2">2 years</option>
-                        <option value="2.5">2.5 years</option>
-                        <option value="3">3 years</option>
-                        <option value="3.5">3.5 years</option>
-                        <option value="4">4 years</option>
-                        <option value="4.5">4.5 years</option>
-                        <option value="5">5 years</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="workforceLeaveDuration2">If Spouse / Partner #2 plans to leave the workforce without pay, enter the amount of time:</label>
-                    <select id="workforceLeaveDuration2">
-                        <option value="0">No leave</option>
-                        <option value="0.5">0.5 years</option>
-                        <option value="1">1 year</option>
-                        <option value="1.5">1.5 years</option>
-                        <option value="2">2 years</option>
-                        <option value="2.5">2.5 years</option>
-                        <option value="3">3 years</option>
-                        <option value="3.5">3.5 years</option>
-                        <option value="4">4 years</option>
-                        <option value="4.5">4.5 years</option>
-                        <option value="5">5 years</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label for="workforceLeaveDuration1">If Spouse / Partner #1 plans to leave the workforce without pay, enter the amount of time:</label>
+                <select id="workforceLeaveDuration1">
+                    <option value="0">No leave</option>
+                    <option value="0.5">0.5 years</option>
+                    <option value="1">1 year</option>
+                    <option value="1.5">1.5 years</option>
+                    <option value="2">2 years</option>
+                    <option value="2.5">2.5 years</option>
+                    <option value="3">3 years</option>
+                    <option value="3.5">3.5 years</option>
+                    <option value="4">4 years</option>
+                    <option value="4.5">4.5 years</option>
+                    <option value="5">5 years</option>
+                </select>
             </div>
-            <div class="button-container">
-                <button onclick="showPage('introPage')"><span class="material-icons">arrow_back</span> Previous</button>
-                <button onclick="showPage('expensesPage')"><span class="material-icons">arrow_forward</span> Next: Expenses</button>
+            <div class="form-group">
+                <label for="workforceLeaveDuration2">If Spouse / Partner #2 plans to leave the workforce without pay, enter the amount of time:</label>
+                <select id="workforceLeaveDuration2">
+                    <option value="0">No leave</option>
+                    <option value="0.5">0.5 years</option>
+                    <option value="1">1 year</option>
+                    <option value="1.5">1.5 years</option>
+                    <option value="2">2 years</option>
+                    <option value="2.5">2.5 years</option>
+                    <option value="3">3 years</option>
+                    <option value="3.5">3.5 years</option>
+                    <option value="4">4 years</option>
+                    <option value="4.5">4.5 years</option>
+                    <option value="5">5 years</option>
+                </select>
             </div>
         </div>
-
-        <div id="expensesPage" class="page">
-            <h2>Expenses</h2>
-            <div id="childcareSection" class="section">
-                <h3>Additional Childcare Costs</h3>
-                <div class="explanation">
-                    <p><span class="material-icons">child_care</span> Enter any additional annual childcare costs (e.g., daycare) beyond the baseline costs already included in our calculations. This will be added to our baseline for up to 5 years.</p>
-                </div>
-                <div class="form-group">
-                    <label for="childCareCost">Additional Annual Childcare Cost ($)</label>
-                    <div class="info-link">
-                        <a href="https://www.dol.gov/agencies/wb/topics/childcare/price-by-age-care-setting" target="_blank">
-                            <span class="material-icons">link</span> Childcare Prices by Age of Children and Care Setting
-                        </a>
-                    </div>
-                    <input type="number" id="childCareCost" value="20000" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="childCareYears">Number of Years Needing Additional Childcare (max 5)</label>
-                    <select id="childCareYears">
-                        <option value="0">No additional childcare</option>
-                        <option value="0.5">0.5 years</option>
-                        <option value="1">1 year</option>
-                        <option value="1.5">1.5 years</option>
-                        <option value="2">2 years</option>
-                        <option value="2.5">2.5 years</option>
-                        <option value="3">3 years</option>
-                        <option value="3.5">3.5 years</option>
-                        <option value="4">4 years</option>
-                        <option value="4.5">4.5 years</option>
-                        <option value="5" selected>5 years</option>
-                    </select>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Basic Living Expenses and Healthcare</h3>
-                <div class="explanation">
-                    <p><span class="material-icons">home</span> Enter your total monthly basic living expenses, including healthcare costs. This should include your current costs for housing, transportation, food, utilities, and healthcare.</p>
-                </div>
-                <div class="form-group">
-                    <label for="basicLivingExpenses">Total Monthly Basic Living Expenses (including Healthcare) ($)</label>
-                    <input type="number" id="basicLivingExpenses" value="3483" step="0.01" required>
-                    <div class="info-link">
-                        <details>
-                            <summary><span class="material-icons">info</span> What does this include?</summary>
-                            <p>This total should include your current monthly expenses for:</p>
-                            <ul>
-                                <li>Housing (rent/mortgage)</li>
-                                <li>Transportation (car payments, insurance, public transit)</li>
-                                <li>Food</li>
-                                <li>Utilities</li>
-                                <li>Healthcare premiums and average out-of-pocket expenses</li>
-                            </ul>
-                            <p>The pre-filled value ($3483) is based on previous estimates: $1500 for housing, $500 for transportation, $800 for food and utilities, and $683 for healthcare (based on $5000 annual premium and $2000 annual out-of-pocket expenses, divided by 12).</p>
-                            <p><strong>Note:</strong> Do not include any future child-related expenses in this total. Those are accounted for separately.</p>
-                        </details>
-                    </div>
-                </div>
-            </div>
-            <div class="button-container">
-                <button onclick="showPage('incomePage')"><span class="material-icons">arrow_back</span> Previous</button>
-                <button onclick="showPage('taxesPage')"><span class="material-icons">arrow_forward</span> Next: Taxes</button>
-            </div>
+        <div class="button-container">
+            <button onclick="showPage('introPage')"><span class="material-icons">arrow_back</span> Previous</button>
+            <button onclick="showPage('expensesPage')"><span class="material-icons">arrow_forward</span> Next: Expenses</button>
         </div>
+    </div>
 
-        <div id="taxesPage" class="page">
-            <h2>Taxes</h2>
-            <div class="section">
-                <h3>Tax Rates</h3>
-                <div class="explanation">
-                    <p><span class="material-icons">description</span> Enter your estimated tax rates. These are rough estimates and may not reflect exact tax calculations.</p>
-                </div>
-                <div class="form-group">
-                    <label for="federalTaxRate">Estimated Federal Tax Rate (%)</label>
-                    <div class="info-link">
-                        <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank">
-                            <span class="material-icons">link</span> Federal Income Tax Brackets
-                        </a>
-                    </div>
-                    <input type="number" id="federalTaxRate" value="22" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="stateTaxRate">Estimated State Tax Rate (%)</label>
-                    <div class="info-link">
-                        <a href="https://help.nfc.usda.gov/systems/TAXES/index.php" target="_blank">
-                            <span class="material-icons">link</span> State Income Tax Brackets
-                        </a>
-                    </div>
-                    <input type="number" id="stateTaxRate" value="5" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="localTaxRate">Estimated Local Tax Rate (%)</label>
-                    <input type="number" id="localTaxRate" value="1" step="0.01" required>
-                </div>
-            </div>
-            <div class="button-container">
-                <button onclick="showPage('expensesPage')"><span class="material-icons">arrow_back</span> Previous</button>
-                <button onclick="showPage('projectionPage')"><span class="material-icons">arrow_forward</span> Next: Growth Projections</button>
-            </div>
-        </div>
-
-        <div id="projectionPage" class="page">
-            <h2>Growth Projections</h2>
-            <div class="section">
-                <h3>Future Growth and Savings</h3>
-                <div class="explanation">
-                    <p><span class="material-icons">trending_up</span> Estimate how you think your salaries and expenses might change over time, and how much you plan to save for retirement.</p>
-                </div>
-                <div class="form-group">
-                    <label for="salaryGrowth">Estimated Annual Salary Growth (%)</label>
-                    <input type="number" id="salaryGrowth" value="3" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="childCareGrowth">Estimated Annual Increase in Childcare Costs (%)</label>
-                    <input type="number" id="childCareGrowth" value="2" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="livingExpensesGrowth">Estimated Annual Increase in Living Expenses (including Healthcare) (%)</label>
-                    <input type="number" id="livingExpensesGrowth" value="3" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="retirementContribution1">Spouse / Partner #1 Annual Retirement Contribution (%)</label>
-                    <input type="number" id="retirementContribution1" value="6" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="employerMatch1">Spouse / Partner #1 Employer Match (%)</label>
-                    <input type="number" id="employerMatch1" value="5" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="retirementContribution2">Spouse / Partner #2 Annual Retirement Contribution (%)</label>
-                    <input type="number" id="retirementContribution2" value="6" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="employerMatch2">Spouse / Partner #2 Employer Match (%)</label>
-                    <input type="number" id="employerMatch2" value="5" step="0.01" required>
-                </div>
-            </div>
-            <div class="button-container">
-                <button onclick="showPage('taxesPage')"><span class="material-icons">arrow_back</span> Previous</button>
-                <button onclick="calculateResults()"><span class="material-icons">calculate</span> Calculate Results</button>
-            </div>
-        </div>
-
-        <div id="resultsPage" class="page">
-            <h2>Projected Household Finances</h2>
+    <div id="expensesPage" class="page">
+        <h2>Expenses</h2>
+        <div id="childcareSection" class="section">
+            <h3>Additional Childcare Costs</h3>
             <div class="explanation">
-                <p><span class="material-icons">info</span> Below is a projection of your household finances over the next 15 years, including income, expenses, taxes, retirement savings, and adjusting for inflation.</p>
-                <p>The Annual Cost Per Child combines your entered childcare costs with the annual cost of one child. According to the USDA, the 2024 inflation-adjusted estimated annual cost per child is around $18,000. Remember, this estimate is based on your provided information and uses simplified tax calculations.</p>
-                <p><a href="https://lp.constantcontactpages.com/sl/yL766xD" target="_blank"><span class="material-icons">download</span> Download The Ultimate Guide to Family Financial Planning</a> for free. We designed it to complement this calculator. </p>
+                <p><span class="material-icons">child_care</span> Enter any additional annual childcare costs (e.g., daycare) beyond the baseline costs already included in our calculations. This will be added to our baseline for up to 5 years.</p>
             </div>
-            <div class="section">
-                <h3>Projected: Income Earned Over 15 Years and Retirement Balance After 15 Years</h3>
-                <div class="chart-container">
-                    <canvas id="financialImpactChart"></canvas>
+            <div class="form-group">
+                <label for="childCareCost">Additional Annual Childcare Cost ($)</label>
+                <div class="info-link">
+                    <a href="https://www.dol.gov/agencies/wb/topics/childcare/price-by-age-care-setting" target="_blank">
+                        <span class="material-icons">link</span> Childcare Prices by Age of Children and Care Setting
+                    </a>
                 </div>
-                <div class="explanation">
-                    <p>This chart compares your current plan with two alternative scenarios over 15 years, including accumulated retirement savings with a conservative 8% annual return:</p>
-                    <ul>
-                        <li><strong>Current Plan:</strong> Your inputted scenario.</li>
-                        <li><strong>Continuous Employment:</strong> Both partners work continuously, using childcare services.</li>
-                        <li><strong>DINK Scenario:</strong> Dual Income, No Kids - for comparison purposes.</li>
-                    </ul>
+                <input type="number" id="childCareCost" value="20000" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="childCareYears">Number of Years Needing Additional Childcare (max 5)</label>
+                <select id="childCareYears">
+                    <option value="0">No additional childcare</option>
+                    <option value="0.5">0.5 years</option>
+                    <option value="1">1 year</option>
+                    <option value="1.5">1.5 years</option>
+                    <option value="2">2 years</option>
+                    <option value="2.5">2.5 years</option>
+                    <option value="3">3 years</option>
+                    <option value="3.5">3.5 years</option>
+                    <option value="4">4 years</option>
+                    <option value="4.5">4.5 years</option>
+                    <option value="5" selected>5 years</option>
+                </select>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Basic Living Expenses and Healthcare</h3>
+            <div class="explanation">
+<p><span class="material-icons">home</span> Enter your total monthly basic living expenses, including healthcare costs. This should include your current costs for housing, transportation, food, utilities, and healthcare.</p>
+            </div>
+            <div class="form-group">
+                <label for="basicLivingExpenses">Total Monthly Basic Living Expenses (including Healthcare) ($)</label>
+                <input type="number" id="basicLivingExpenses" value="3483" step="0.01" required>
+                <div class="info-link">
+                    <details>
+                        <summary><span class="material-icons">info</span> What does this include?</summary>
+                        <p>This total should include your current monthly expenses for:</p>
+                        <ul>
+                            <li>Housing (rent/mortgage)</li>
+                            <li>Transportation (car payments, insurance, public transit)</li>
+                            <li>Food</li>
+                            <li>Utilities</li>
+                            <li>Healthcare premiums and average out-of-pocket expenses</li>
+                        </ul>
+                        <p>The pre-filled value ($3483) is based on previous estimates: $1500 for housing, $500 for transportation, $800 for food and utilities, and $683 for healthcare (based on $5000 annual premium and $2000 annual out-of-pocket expenses, divided by 12).</p>
+                        <p><strong>Note:</strong> Do not include any future child-related expenses in this total. Those are accounted for separately.</p>
+                    </details>
                 </div>
             </div>
-            <div class="section">
-                <h3>Detailed Yearly Projection</h3>
-                <div class="table-container">
-                    <table id="resultsTable">
-                        <thead>
-                            <tr>
-                                <th>Year</th>
-                                <th>Gross Income</th>
-                                <th>Taxes</th>
-                                <th>Annual Cost Per Child</th>
-                                <th>Basic Living Expenses (incl. Healthcare)</th>
-                                <th>Retirement Savings</th>
-                                <th>Balance</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Results will be inserted here by JavaScript -->
-                        </tbody>
-                    </table>
+        </div>
+        <div class="button-container">
+            <button onclick="showPage('incomePage')"><span class="material-icons">arrow_back</span> Previous</button>
+            <button onclick="showPage('taxesPage')"><span class="material-icons">arrow_forward</span> Next: Taxes</button>
+        </div>
+    </div>
+
+    <div id="taxesPage" class="page">
+        <h2>Taxes</h2>
+        <div class="section">
+            <h3>Tax Rates</h3>
+            <div class="explanation">
+                <p><span class="material-icons">description</span> Enter your estimated tax rates. These are rough estimates and may not reflect exact tax calculations.</p>
+            </div>
+            <div class="form-group">
+                <label for="federalTaxRate">Estimated Federal Tax Rate (%)</label>
+                <div class="info-link">
+                    <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank">
+                        <span class="material-icons">link</span> Federal Income Tax Brackets
+                    </a>
                 </div>
+                <input type="number" id="federalTaxRate" value="22" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="stateTaxRate">Estimated State Tax Rate (%)</label>
+                <div class="info-link">
+                    <a href="https://help.nfc.usda.gov/systems/TAXES/index.php" target="_blank">
+                        <span class="material-icons">link</span> State Income Tax Brackets
+                    </a>
+                </div>
+                <input type="number" id="stateTaxRate" value="5" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="localTaxRate">Estimated Local Tax Rate (%)</label>
+                <input type="number" id="localTaxRate" value="1" step="0.01" required>
+            </div>
+        </div>
+        <div class="button-container">
+            <button onclick="showPage('expensesPage')"><span class="material-icons">arrow_back</span> Previous</button>
+            <button onclick="showPage('projectionPage')"><span class="material-icons">arrow_forward</span> Next: Growth Projections</button>
+        </div>
+    </div>
+
+    <div id="projectionPage" class="page">
+        <h2>Growth Projections</h2>
+        <div class="section">
+            <h3>Future Growth and Savings</h3>
+            <div class="explanation">
+                <p><span class="material-icons">trending_up</span> Estimate how you think your salaries and expenses might change over time, and how much you plan to save for retirement.</p>
+            </div>
+            <div class="form-group">
+                <label for="salaryGrowth">Estimated Annual Salary Growth (%)</label>
+                <input type="number" id="salaryGrowth" value="3" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="childCareGrowth">Estimated Annual Increase in Childcare Costs (%)</label>
+                <input type="number" id="childCareGrowth" value="2" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="livingExpensesGrowth">Estimated Annual Increase in Living Expenses (including Healthcare) (%)</label>
+                <input type="number" id="livingExpensesGrowth" value="3" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="retirementContribution1">Spouse / Partner #1 Annual Retirement Contribution (%)</label>
+                <input type="number" id="retirementContribution1" value="6" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="employerMatch1">Spouse / Partner #1 Employer Match (%)</label>
+                <input type="number" id="employerMatch1" value="5" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="retirementContribution2">Spouse / Partner #2 Annual Retirement Contribution (%)</label>
+                <input type="number" id="retirementContribution2" value="6" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="employerMatch2">Spouse / Partner #2 Employer Match (%)</label>
+                <input type="number" id="employerMatch2" value="5" step="0.01" required>
+            </div>
+        </div>
+        <div class="button-container">
+            <button onclick="showPage('taxesPage')"><span class="material-icons">arrow_back</span> Previous</button>
+            <button onclick="calculateResults()"><span class="material-icons">calculate</span> Calculate Results</button>
+        </div>
+    </div>
+
+    <div id="resultsPage" class="page">
+        <h2>Projected Household Finances</h2>
+        <div class="explanation">
+            <p><span class="material-icons">info</span> Below is a projection of your household finances over the next 15 years, including income, expenses, taxes, retirement savings, and adjusting for inflation.</p>
+            <p>The Annual Cost Per Child combines your entered childcare costs with the annual cost of one child. According to the USDA, the 2024 inflation-adjusted estimated annual cost per child is around $18,000. Remember, this estimate is based on your provided information and uses simplified tax calculations.</p>
+            <p><a href="https://lp.constantcontactpages.com/sl/yL766xD" target="_blank"><span class="material-icons">download</span> Download The Ultimate Guide to Family Financial Planning</a> for free. We designed it to complement this calculator. </p>
+        </div>
+        <div class="section">
+            <h3>Projected: Income Earned Over 15 Years and Retirement Balance After 15 Years</h3>
+            <div style="height: 300px; max-width: 600px; margin: auto;">
+                <canvas id="financialImpactChart"></canvas>
             </div>
             <div class="explanation">
-                <p><a href="https://finmango.org" target="_blank">FinMango</a> is a nonprofit advancing financial health worldwide and <a href="https://modernhusbands.com" target="_blank">Modern Husbands</a> helps couples manage their money and their home.</p>
+                <p>This chart compares your current plan with two alternative scenarios over 15 years, including accumulated retirement savings with a conservative 8% annual return:</p>
+                <ul>
+                    <li><strong>Current Plan:</strong> Your inputted scenario.</li>
+                    <li><strong>Continuous Employment:</strong> Both partners work continuously, using childcare services.</li>
+                    <li><strong>DINK Scenario:</strong> Dual Income, No Kids - for comparison purposes.</li>
+                </ul>
             </div>
-            <div class="button-container">
-                <button onclick="showPage('projectionPage')"><span class="material-icons">arrow_back</span> Previous</button>
-                <button onclick="showPage('incomePage')"><span class="material-icons">refresh</span> Start Over</button>
+        </div>
+        <div class="section">
+            <h3>Detailed Yearly Projection</h3>
+            <div class="table-container">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Gross Income</th>
+                            <th>Taxes</th>
+                            <th>Annual Cost Per Child</th>
+                            <th>Basic Living Expenses (incl. Healthcare)</th>
+                            <th>Retirement Savings</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Results will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
             </div>
+        </div>
+        <div class="explanation">
+            <p><a href="https://finmango.org" target="_blank">FinMango</a> is a nonprofit advancing financial health worldwide and <a href="https://modernhusbands.com" target="_blank">Modern Husbands</a> helps couples manage their money and their home.</p>
+        </div>
+        <div class="button-container">
+            <button onclick="showPage('projectionPage')"><span class="material-icons">arrow_back</span> Previous</button>
+            <button onclick="showPage('incomePage')"><span class="material-icons">refresh</span> Start Over</button>
         </div>
     </div>
 
     <script>
+        let currentPage = 'introPage';
+        const pages = ['introPage', 'incomePage', 'expensesPage', 'taxesPage', 'projectionPage', 'resultsPage'];
+
         function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(currentPage).classList.remove('active');
             document.getElementById(pageId).classList.add('active');
+            currentPage = pageId;
+
             if (pageId === 'expensesPage') {
                 const isDINK = document.querySelector('input[name="familyType"]:checked').value === 'dink';
                 document.getElementById('childcareSection').style.display = isDINK ? 'none' : 'block';
+            }
+
+            // Reset the form when going back to the income page
+            if (pageId === 'incomePage') {
+                document.querySelectorAll('input[type="number"], select').forEach(input => {
+                    input.value = input.defaultValue;
+                });
             }
         }
 
@@ -578,7 +561,7 @@
                 const projectedBasicLivingExpenses = basicLivingExpenses * Math.pow(1 + livingExpensesGrowth, year - 1);
 
                 const retirementSavings1 = projectedSalary1 * (retirementContribution1 + Math.min(retirementContribution1, employerMatch1));
-                const retirementSavings2 = projectedSalary2 * (retirementContribution2 + Math.min(retirementContribution2, employerMatch2));
+               const retirementSavings2 = projectedSalary2 * (retirementContribution2 + Math.min(retirementContribution2, employerMatch2));
                 const totalRetirementSavings = retirementSavings1 + retirementSavings2;
 
                 const taxableIncome = grossIncome - totalRetirementSavings;
@@ -626,10 +609,7 @@
 
         function createFinancialImpactChart(currentTotal, currentRetirement, continuousTotal, continuousRetirement, dinkTotal, dinkRetirement) {
             const ctx = document.getElementById('financialImpactChart').getContext('2d');
-            if (window.financialImpactChart) {
-                window.financialImpactChart.destroy();
-            }
-            window.financialImpactChart = new Chart(ctx, {
+            new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: ['Current Plan', 'Continuous Employment', 'DINK Scenario'],
@@ -641,14 +621,14 @@
                             Math.round(dinkTotal + dinkRetirement)
                         ],
                         backgroundColor: [
-                            'rgba(103, 80, 164, 0.8)',
-                            'rgba(98, 91, 113, 0.8)',
-                            'rgba(179, 38, 30, 0.8)'
+                            'rgba(25, 118, 210, 0.8)',
+                            'rgba(56, 142, 60, 0.8)',
+                            'rgba(245, 124, 0, 0.8)'
                         ],
                         borderColor: [
-                            'rgba(103, 80, 164, 1)',
-                            'rgba(98, 91, 113, 1)',
-                            'rgba(179, 38, 30, 1)'
+                            'rgba(25, 118, 210, 1)',
+                            'rgba(56, 142, 60, 1)',
+                            'rgba(245, 124, 0, 1)'
                         ],
                         borderWidth: 1
                     }]
@@ -693,11 +673,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             showPage('introPage');
 
-            // Add event listener for logo click
-            document.querySelector('.logo').addEventListener('click', function() {
-                showPage('introPage');
-            });
-
             // Add event listeners for family type radio buttons
             document.querySelectorAll('input[name="familyType"]').forEach(radio => {
                 radio.addEventListener('change', function() {
@@ -706,8 +681,16 @@
                 });
             });
 
-            // Add event listener for the Calculate Results button
-            document.querySelector('button[onclick="calculateResults()"]').addEventListener('click', calculateResults);
+            // Add event listeners for navigation buttons
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    const action = this.getAttribute('onclick');
+                    if (action) {
+                        event.preventDefault();
+                        new Function(action)();
+                    }
+                });
+            });
         });
     </script>
 </body>
